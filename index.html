@@ -1,220 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Rashid Ahmad — Data Entry, Compliance & Web Development Professional">
-<meta name="theme-color" content="#07070b">
-<title>Rashid Ahmad | Portfolio</title>
+<meta name="theme-color" content="#f6efe0">
+<title>Home - Rashqt</title>
+<link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-512.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/favicon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#07070b; --bg-soft:#0e0e16; --card:#121219;
-  --text:#f6f5f9; --muted:#9b98a8; --line:rgba(246,245,249,.09);
-  --violet:#8b5cf6; --pink:#f472b6; --cyan:#22d3ee; --lime:#d7ff3f;
-  --grad:linear-gradient(115deg,var(--violet),var(--pink) 55%,var(--cyan));
-}
-*{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{
-  font-family:'Space Grotesk',sans-serif; background:var(--bg); color:var(--text);
-  line-height:1.65; overflow-x:hidden;
-}
-a{color:inherit; text-decoration:none; touch-action:manipulation;}
-::selection{background:var(--lime); color:#0a0a0f;}
-:focus-visible{outline:2px solid var(--lime); outline-offset:3px;}
-.container{width:min(1120px,92%); margin:auto;}
-.mono{font-family:'JetBrains Mono',monospace;}
-.disp{font-family:'Unbounded',sans-serif;}
-
-/* scroll progress */
-.progress{position:fixed; top:0; left:0; height:3px; width:0%; background:var(--grad); z-index:200; transition:width .1s linear;}
-
-/* cursor glow (desktop only, respects reduced motion) */
-.cursor-glow{
-  position:fixed; width:420px; height:420px; border-radius:50%; pointer-events:none; z-index:1;
-  background:radial-gradient(circle,rgba(139,92,246,.14),transparent 70%);
-  transform:translate(-50%,-50%); transition:opacity .3s; opacity:0; left:0; top:0;
-}
-@media(hover:hover) and (pointer:fine){ .cursor-glow{opacity:1;} }
-
-/* nav */
-nav.top{position:sticky; top:0; z-index:100; background:rgba(7,7,11,.72); backdrop-filter:blur(16px); border-bottom:1px solid var(--line);}
-.navrow{height:72px; display:flex; align-items:center; justify-content:space-between;}
-.logo{font-family:'Unbounded',sans-serif; font-weight:700; font-size:1.1rem;}
-.logo span{background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent;}
-.navlinks{display:flex; gap:28px; font-size:.86rem; color:var(--muted); font-family:'JetBrains Mono',monospace;}
-.navlinks a{position:relative; transition:color .25s;}
-.navlinks a::after{content:''; position:absolute; left:0; bottom:-6px; width:0; height:1px; background:var(--lime); transition:width .25s;}
-.navlinks a:hover{color:var(--text);}
-.navlinks a:hover::after{width:100%;}
-.burger{display:none; flex-direction:column; gap:5px; background:none; border:0; padding:12px; cursor:pointer; z-index:110; touch-action:manipulation;}
-.burger span{display:block; width:22px; height:2px; background:var(--text); transition:transform .3s, opacity .3s;}
-.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-.burger.open span:nth-child(2){opacity:0;}
-.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-.mobile-menu{
-  position:fixed; inset:72px 0 0 0; background:rgba(7,7,11,.98); backdrop-filter:blur(18px);
-  z-index:99; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:28px;
-  transform:translateY(-12px); opacity:0; pointer-events:none; transition:opacity .3s, transform .3s;
-}
-.mobile-menu.open{opacity:1; transform:translateY(0); pointer-events:auto;}
-.mobile-menu a{font-family:'Unbounded',sans-serif; font-size:1.4rem; color:var(--text);}
-@media(max-width:760px){
-  .navlinks{display:none;}
-  .burger{display:flex;}
-  .mobile-menu{inset:64px 0 0 0;}
-}
-@media(min-width:761px){ .mobile-menu{display:none;} }
-
-/* hero */
-.hero{position:relative; min-height:calc(100vh - 72px); display:flex; align-items:center; padding:90px 0 70px; overflow:hidden;}
-.blob{position:absolute; border-radius:50%; filter:blur(90px); opacity:.55; z-index:0; will-change:transform;}
-.blob1{width:480px; height:480px; background:var(--violet); top:-160px; left:-120px; animation:float1 16s ease-in-out infinite;}
-.blob2{width:420px; height:420px; background:var(--cyan); bottom:-140px; right:-100px; animation:float2 18s ease-in-out infinite;}
-.blob3{width:300px; height:300px; background:var(--pink); top:40%; left:55%; animation:float3 20s ease-in-out infinite;}
-@keyframes float1{0%,100%{transform:translate(0,0) scale(1);} 50%{transform:translate(60px,40px) scale(1.12);}}
-@keyframes float2{0%,100%{transform:translate(0,0) scale(1);} 50%{transform:translate(-50px,-30px) scale(1.08);}}
-@keyframes float3{0%,100%{transform:translate(0,0) scale(1);} 50%{transform:translate(-40px,50px) scale(1.15);}}
-
-.hero-inner{position:relative; z-index:2;}
-.pill-row{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:26px;}
-.pill{
-  font-family:'JetBrains Mono',monospace; font-size:.74rem; letter-spacing:.04em;
-  padding:7px 14px; border-radius:999px; border:1px solid var(--line); color:var(--muted);
-  display:flex; align-items:center; gap:7px; background:rgba(255,255,255,.02);
-}
-.pill .dot{width:6px; height:6px; border-radius:50%; background:var(--lime); box-shadow:0 0 8px var(--lime);}
-
-h1.hero-title{
-  font-family:'Unbounded',sans-serif; font-weight:900; letter-spacing:-.02em;
-  font-size:clamp(2.8rem,9vw,6.6rem); line-height:.98; margin:0 0 26px;
-}
-h1.hero-title .grad{background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent;}
-.letter{display:inline-block; opacity:0; transform:translateY(40px) rotate(4deg); animation:letterIn .7s cubic-bezier(.2,.8,.2,1) forwards;}
-@keyframes letterIn{to{opacity:1; transform:translateY(0) rotate(0);}}
-
-.hero p.lede{max-width:600px; color:var(--muted); font-size:1.12rem; margin-bottom:34px;}
-.buttons{display:flex; gap:14px; flex-wrap:wrap;}
-.btn{
-  position:relative; display:inline-flex; align-items:center; gap:8px;
-  padding:14px 24px; border-radius:14px; font-weight:600; font-size:.92rem;
-  border:1px solid var(--line); background:var(--card); transition:transform .25s, border-color .25s;
-}
-.btn.primary{background:var(--grad); color:#0a0a0f; border-color:transparent; font-weight:700;}
-.btn:hover{border-color:var(--cyan); transform:translateY(-3px);}
-.btn.primary:hover{transform:translateY(-3px) scale(1.02);}
-
-/* marquee ticker */
-.ticker-wrap{border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:var(--bg-soft); overflow:hidden; padding:16px 0;}
-.ticker{display:flex; width:max-content; gap:48px; animation:scrollX 26s linear infinite;}
-.ticker-wrap:hover .ticker{animation-play-state:paused;}
-.ticker span{font-family:'JetBrains Mono',monospace; font-size:.85rem; color:var(--muted); white-space:nowrap; display:flex; align-items:center; gap:10px;}
-.ticker span::before{content:'◆'; color:var(--cyan); font-size:.6rem;}
-@keyframes scrollX{from{transform:translateX(0);} to{transform:translateX(-50%);}}
-
-/* sections */
-section{padding:100px 0; border-top:1px solid var(--line); position:relative;}
-.eyebrow{font-family:'JetBrains Mono',monospace; color:var(--cyan); font-weight:600; letter-spacing:.1em; text-transform:uppercase; font-size:.78rem;}
-.section-title{font-family:'Unbounded',sans-serif; font-size:clamp(1.8rem,4vw,2.7rem); letter-spacing:-.02em; margin:14px 0 40px; font-weight:700;}
-
-.reveal{opacity:0; transform:translateY(28px); transition:opacity .7s ease, transform .7s ease;}
-.reveal.in{opacity:1; transform:translateY(0);}
-
-.about-grid{display:grid; grid-template-columns:1fr 1.35fr; gap:56px;}
-.about-grid p{color:var(--muted); font-size:1.03rem; margin-bottom:16px;}
-.strengths{display:flex; flex-wrap:wrap; gap:9px;}
-.tag{border:1px solid var(--line); padding:8px 13px; border-radius:999px; color:#cfcdd8; font-size:.8rem; font-family:'JetBrains Mono',monospace; transition:.25s;}
-.tag:hover{border-color:var(--pink); color:var(--pink);}
-
-.grid2{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px;}
-.card{
-  background:var(--card); border:1px solid var(--line); border-radius:20px; padding:28px;
-  transition:transform .35s, border-color .35s, box-shadow .35s; transform-style:preserve-3d; will-change:transform;
-}
-.card:hover{border-color:rgba(139,92,246,.5); box-shadow:0 20px 50px -20px rgba(139,92,246,.35);}
-.card h3{font-family:'Unbounded',sans-serif; font-size:1.05rem; margin-bottom:10px; font-weight:600;}
-.card p, .card li{color:var(--muted); font-size:.93rem;}
-
-.timeline{display:flex; flex-direction:column; gap:0;}
-.role{position:relative; padding:26px 0 26px 32px; border-left:2px solid var(--line);}
-.role::before{content:''; position:absolute; left:-7px; top:30px; width:12px; height:12px; border-radius:50%; background:var(--grad); box-shadow:0 0 0 4px var(--bg), 0 0 16px var(--violet);}
-.role .meta{font-family:'JetBrains Mono',monospace; color:var(--lime); font-size:.78rem; font-weight:600; margin-bottom:6px; letter-spacing:.04em;}
-.role h3{font-family:'Unbounded',sans-serif; font-size:1.15rem; margin-bottom:10px; font-weight:600;}
-.role ul{margin-left:18px; color:var(--muted); font-size:.94rem;}
-.role li{margin-bottom:6px;}
-
-.project{position:relative; overflow:hidden;}
-.project .num{font-family:'Unbounded',sans-serif; color:transparent; -webkit-text-stroke:1px var(--muted); font-size:1.6rem; font-weight:700; opacity:.5;}
-.project h3{margin-top:10px;}
-.project a.arrow{margin-top:16px; display:inline-block; color:var(--cyan); font-weight:600; font-size:.86rem;}
-.project a.arrow::after{content:' →'; transition:margin .2s;}
-.project:hover a.arrow::after{margin-left:6px;}
-
-.creator-card{display:flex; gap:26px; align-items:flex-start; flex-wrap:wrap;}
-.play{
-  width:58px; height:58px; border-radius:50%; background:var(--grad); flex-shrink:0;
-  display:flex; align-items:center; justify-content:center; position:relative;
-}
-.play::before{content:''; position:absolute; inset:-8px; border-radius:50%; border:1px solid var(--cyan); opacity:.5; animation:pulse 2.4s ease-out infinite;}
-.play::after{content:''; border-left:16px solid #0a0a0f; border-top:10px solid transparent; border-bottom:10px solid transparent; margin-left:5px;}
-@keyframes pulse{0%{transform:scale(.9); opacity:.6;} 100%{transform:scale(1.5); opacity:0;}}
-
-.contact-split{display:flex; justify-content:space-between; align-items:flex-end; gap:30px; flex-wrap:wrap;}
-.big-cta{font-family:'Unbounded',sans-serif; font-size:clamp(2.2rem,6vw,4.2rem); font-weight:700; letter-spacing:-.02em; margin-bottom:20px;}
-footer{padding:32px 0; color:var(--muted); font-size:.82rem; border-top:1px solid var(--line); font-family:'JetBrains Mono',monospace; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;}
-
-@media(max-width:760px){
-  .about-grid{grid-template-columns:1fr; gap:34px;}
-  section{padding:64px 0;}
-  .contact-split{display:block;}
-  .navrow{height:64px;}
-  .mobile-menu{inset:64px 0 0 0;}
-  .hero{min-height:auto; padding:56px 0 50px;}
-  .blob1{width:280px; height:280px; top:-90px; left:-90px;}
-  .blob2{width:240px; height:240px; bottom:-80px; right:-70px;}
-  .blob3{width:180px; height:180px;}
-  h1.hero-title{margin-bottom:18px;}
-  .hero p.lede{font-size:1rem;}
-  .buttons{flex-direction:column; align-items:stretch;}
-  .buttons .btn{justify-content:center;}
-  .pill-row .pill{font-size:.68rem; padding:6px 11px;}
-  .ticker{gap:28px;}
-  .ticker span{font-size:.76rem;}
-  .grid2{grid-template-columns:1fr; gap:14px;}
-  .card{padding:22px;}
-  .role{padding-left:24px;}
-  .big-cta{margin-bottom:16px;}
-  footer{flex-direction:column; text-align:center;}
-}
-@media(max-width:400px){
-  h1.hero-title{font-size:2.3rem;}
-  .section-title{font-size:1.5rem;}
-}
-@media(prefers-reduced-motion:reduce){
-  *{animation:none !important; transition:none !important;}
-  .reveal{opacity:1; transform:none;}
-  .letter{opacity:1; transform:none;}
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="progress" id="progress"></div>
 <div class="cursor-glow" id="glow"></div>
 
 <nav class="top"><div class="container navrow">
-  <a class="logo" href="#">Rashid<span>.</span></a>
-  <div class="navlinks">
-    <a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a>
-    <a href="#projects">Projects</a><a href="#contact">Contact</a>
+  <a class="logo" href="index.html">Rash<span>qt</span></a>
+  <div class="nav-group">
+    <div class="navlinks">
+      <a href="index.html" class="active">Home</a><a href="about.html">About</a>
+      <a href="#projects">Projects</a><a href="#writing">Writing</a><a href="#blog">Blog</a><a href="#contact">Contact</a>
+    </div>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">🌙</button>
+      <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
   </div>
-  <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </div></nav>
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a>
-  <a href="#projects">Projects</a><a href="#creator">YouTube</a><a href="#contact">Contact</a>
+  <a href="index.html">Home</a><a href="about.html">About</a>
+  <a href="#projects">Projects</a><a href="#writing">Writing</a><a href="#blog">Blog</a>
+  <a href="#creator">YouTube</a><a href="#contact">Contact</a>
 </div>
 
 <header class="hero">
@@ -228,9 +49,9 @@ footer{padding:32px 0; color:var(--muted); font-size:.82rem; border-top:1px soli
     <h1 class="hero-title" id="heroTitle"></h1>
     <p class="lede">Detail-obsessed with data, curious about code. I verify KYC records by day, ship websites and AI-powered workflows on the side — and I move fast without breaking accuracy.</p>
     <div class="buttons">
-      <a class="btn primary" href="#projects">View projects</a>
-      <a class="btn" href="mailto:workforrash@gmail.com">Say hi ↗</a>
-      <a class="btn" href="https://github.com/Rashqt" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn primary" href="#projects">View projects <span class="arrow">→</span></a>
+      <a class="btn ghost" href="mailto:workforrash@gmail.com">Say hi <span class="arrow">↗</span></a>
+      <a class="btn ghost" href="about.html">More about me</a>
     </div>
   </div>
 </header>
@@ -239,75 +60,109 @@ footer{padding:32px 0; color:var(--muted); font-size:.82rem; border-top:1px soli
   <div class="ticker" id="ticker"></div>
 </div>
 
-<section id="about"><div class="container about-grid">
-  <div class="reveal"><div class="eyebrow">01 / About</div><h2 class="section-title">Reliable with data.<br>Curious about tech.</h2></div>
-  <div class="reveal">
-    <p>Hands-on experience in banking and mortgage data entry, KYC document verification, and compliance-focused record keeping — combined with practical web development skills and daily use of AI-assisted productivity tools.</p>
-    <p>Comfortable working independently, learning new tools fast, and communicating clearly with clients and teams. Open to data entry, operations, customer support, or entry-level technical roles.</p>
-    <div class="strengths">
-      <span class="tag">Fast Learner</span><span class="tag">Self-Taught</span><span class="tag">Adaptable</span>
-      <span class="tag">Detail-Oriented</span><span class="tag">Problem Solver</span><span class="tag">Organized</span>
-      <span class="tag">Research-Oriented</span><span class="tag">Independent Worker</span><span class="tag">Continuous Learner</span>
-    </div>
-  </div>
-</div></section>
-
-<section id="skills"><div class="container">
-  <div class="reveal"><div class="eyebrow">02 / Skills</div><h2 class="section-title">What I work with</h2></div>
-  <div class="grid2">
-    <div class="card reveal"><h3>Web Development</h3><p>HTML5, CSS3, JavaScript, AngularJS, Node.js, MySQL, REST API Integration, Responsive &amp; Mobile-First Design, Git/GitHub, GitHub Pages, Netlify</p></div>
-    <div class="card reveal"><h3>Programming &amp; Data</h3><p>Python, NumPy, Pandas, C++, JSON, YAML, Debugging, Technical Research</p></div>
-    <div class="card reveal"><h3>Data &amp; Operations</h3><p>Data Entry, Data Processing, Documentation, Online Research, Spreadsheet Management, Record Keeping, Quality Assurance, Task Coordination</p></div>
-    <div class="card reveal"><h3>AI &amp; Productivity</h3><p>ChatGPT, Claude, Gemini, Microsoft Copilot, Codex, Perplexity AI, Notion AI, Grammarly</p></div>
-    <div class="card reveal"><h3>Software &amp; Collaboration</h3><p>Excel, Word, PowerPoint, Google Workspace, Notion, Trello, Slack, Zoom, Google Meet, Microsoft Teams, Canva</p></div>
-  </div>
-</div></section>
-
-<section id="experience"><div class="container">
-  <div class="reveal"><div class="eyebrow">03 / Experience</div><h2 class="section-title">Work experience</h2></div>
-  <div class="timeline">
-    <div class="role reveal">
-      <div class="meta">1 YEAR</div><h3>Banking KYC Data Entry Executive</h3>
-      <ul><li>Reviewed, verified, and entered customer KYC documentation according to banking compliance standards.</li>
-      <li>Maintained accuracy across large volumes of sensitive financial records.</li>
-      <li>Organized and cross-checked documentation, flagging discrepancies to support process reliability.</li></ul>
-    </div>
-    <div class="role reveal">
-      <div class="meta">6 MONTHS</div><h3>Mortgage Data Entry Associate</h3>
-      <ul><li>Processed mortgage-related documentation with close attention to accuracy and compliance.</li>
-      <li>Maintained organized digital records for efficient retrieval and reporting.</li>
-      <li>Collaborated with team members to complete data processing tasks on time.</li></ul>
-    </div>
-    <div class="role reveal">
-      <div class="meta">FREELANCE</div><h3>Web Developer — Business Website</h3>
-      <ul><li>Gathered client requirements and translated them into a functional website plan.</li>
-      <li>Built responsive UI/UX with HTML, CSS, and JavaScript; integrated backend functionality.</li>
-      <li>Tested, deployed, hosted, and handled ongoing revisions and maintenance for the client.</li></ul>
-    </div>
+<section class="quote-strip"><div class="container">
+  <div class="quote-box reveal">
+    <div class="quote-mark">"</div>
+    <p class="quote-text" id="quoteText"></p>
+    <div class="quote-dots" id="quoteDots"></div>
   </div>
 </div></section>
 
 <section id="projects"><div class="container">
-  <div class="reveal"><div class="eyebrow">04 / Projects</div><h2 class="section-title">Things I've built</h2></div>
-  <div class="grid2">
-    <div class="card project reveal"><div class="num">01</div><h3>Business Website Development</h3><p>Built and deployed a full client-facing business website, handling design, development, and hosting end-to-end.</p></div>
-    <div class="card project reveal"><div class="num">02</div><h3>Discord Bot Development</h3><p>Designed and built a custom Discord bot, applying programming logic and API integration to automate community functions.</p></div>
-    <div class="card project reveal"><div class="num">03</div><h3>Chrome Extension Development</h3><p>Developed a browser extension from concept to functionality using JavaScript and frontend engineering skills.</p></div>
-    <div class="card project reveal"><div class="num">04</div><h3>Portfolio Website</h3><p>Designed, built, and deployed a personal portfolio site to showcase projects and technical skills.</p></div>
-    <div class="card project reveal"><div class="num">05</div><h3>AI Productivity Systems</h3><p>Designed and tested AI-assisted workflows for research, documentation, content production, and faster learning.</p></div>
+  <div class="reveal section-foot">
+    <div><div class="eyebrow">01 / Projects</div><h2 class="section-title">Things I've built</h2></div>
+    <a class="btn ghost" href="about.html#projects">View all projects <span class="arrow">→</span></a>
+  </div>
+  <div class="grid3">
+    <div class="card project reveal"><span class="tag-mini">Client work</span><h3>Business Website Development</h3><p>Built and deployed a full client-facing business website, handling design, development, and hosting end-to-end.</p></div>
+    <div class="card project reveal"><span class="tag-mini">Automation</span><h3>Discord Bot Development</h3><p>Designed and built a custom Discord bot, applying programming logic and API integration to automate community functions.</p></div>
+    <div class="card project reveal"><span class="tag-mini">AI workflows</span><h3>AI Productivity Systems</h3><p>Designed and tested AI-assisted workflows for research, documentation, content production, and faster learning.</p></div>
   </div>
 </div></section>
 
-<section id="education"><div class="container">
-  <div class="reveal"><div class="eyebrow">05 / Education</div><h2 class="section-title">Education</h2></div>
-  <div class="grid2">
-    <div class="card reveal"><h3>Class 12 — Science (PCM + CS)</h3><p>Vivekananda Vidya Mandir School, Ranchi, Jharkhand · Completed 2024</p></div>
-    <div class="card reveal"><h3>B.Tech — AI &amp; Machine Learning</h3><p>Currently pursuing · 2nd Year</p></div>
+<section id="writing"><div class="container">
+  <div class="reveal"><div class="eyebrow">02 / Featured Writing</div><h2 class="section-title">Featured writing</h2></div>
+  <div class="book-card reveal">
+    <div class="book-cover"><img src="assets/uncrossed-paths-cover.jpg" alt="Uncrossed Paths book cover"></div>
+    <div class="book-info">
+      <span class="tag">Novel</span>
+      <h3 style="font-family:'Unbounded',sans-serif; font-size:1.5rem; margin-top:14px;">Uncrossed Paths</h3>
+      <p>Uncrossed Paths is a bittersweet tale about two people who find an undeniable connection despite their differences. It's a story of friendship, unspoken feelings, and self-growth—showing that sometimes the most meaningful bonds are the ones that change us forever, even if they don't last.</p>
+      <a class="btn primary" href="#">Read now <span class="arrow">→</span></a>
+    </div>
   </div>
 </div></section>
+
+<section id="blog"><div class="container">
+  <div class="reveal"><div class="eyebrow">03 / Blog</div><h2 class="section-title">From the blog</h2></div>
+  <div class="grid3" id="blogGrid">
+    <!-- Blog cards are rendered here from blogs.json by script.js -->
+  </div>
+  <div class="reveal" style="text-align:center; margin-top:36px;">
+    <a class="btn ghost" href="#">View all posts <span class="arrow">→</span></a>
+  </div>
+</div></section>
+
+<!-- Full blog view modal: opens in-page when a blog card is clicked -->
+<div class="modal-overlay" id="blogModal" aria-hidden="true">
+  <div class="modal blog-modal-panel" role="dialog" aria-modal="true" aria-labelledby="blogModalTitle">
+    <button class="modal-close" id="blogModalClose" aria-label="Close blog">✕</button>
+    <div class="blog-modal-meta mono" id="blogModalMeta"></div>
+    <h2 class="blog-modal-title" id="blogModalTitle"></h2>
+    <div class="blog-modal-body" id="blogModalBody"></div>
+
+    <div class="blog-like-row">
+      <button class="like-btn" id="likeBtn" aria-pressed="false">
+        <span class="heart">❤️</span> <span id="likeCount">0</span>
+      </button>
+      <button class="btn primary support-btn" id="supportBtn">Support Rash <span class="arrow">→</span></button>
+    </div>
+
+    <div class="blog-share-block">
+      <div class="share-label mono">Share this post</div>
+      <div class="share-row" id="blogModalShare"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Support Rash modal: step 1 (choose amount) -->
+<div class="modal-overlay" id="supportModal" aria-hidden="true">
+  <div class="modal support-modal" role="dialog" aria-modal="true" aria-labelledby="supportModalTitle">
+    <button class="modal-close" id="supportModalClose" aria-label="Close">✕</button>
+    <h3 id="supportModalTitle">Support Rash — so he can keep cookin' kool stuffs.</h3>
+    <p class="support-sub">Pick an amount, or enter your own.</p>
+    <div class="amount-grid" id="amountGrid">
+      <button class="amount-chip" data-amount="10">₹10</button>
+      <button class="amount-chip" data-amount="20">₹20</button>
+      <button class="amount-chip" data-amount="30">₹30</button>
+      <button class="amount-chip" data-amount="50">₹50</button>
+    </div>
+    <div class="custom-amount">
+      <span class="mono">₹</span>
+      <input type="number" id="customAmount" min="1" placeholder="Custom amount" inputmode="numeric">
+    </div>
+    <button class="btn primary" id="continueBtn" style="width:100%; justify-content:center; margin-top:18px;" disabled>Continue <span class="arrow">→</span></button>
+  </div>
+</div>
+
+<!-- Support Rash modal: step 2 (UPI payment) -->
+<div class="modal-overlay" id="paymentModal" aria-hidden="true">
+  <div class="modal payment-modal" role="dialog" aria-modal="true" aria-labelledby="paymentModalTitle">
+    <button class="modal-close" id="paymentModalClose" aria-label="Close">✕</button>
+    <h3 id="paymentModalTitle">Pay this amount</h3>
+    <div class="pay-amount mono" id="payAmount">₹0</div>
+    <div class="upi-id-row">
+      <span class="mono" id="upiIdText">rashidahmad@upi</span>
+      <button class="copy-upi" id="copyUpiBtn" aria-label="Copy UPI ID">Copy</button>
+    </div>
+    <div class="qr-wrap" id="qrWrap"></div>
+    <p class="upi-note">Placeholder UPI ID/QR — swap in your real UPI ID once available.</p>
+    <a class="btn primary" id="openUpiBtn" style="width:100%; justify-content:center;" href="#">Open in UPI App <span class="arrow">→</span></a>
+  </div>
+</div>
 
 <section id="creator"><div class="container">
-  <div class="reveal"><div class="eyebrow">06 / Creator</div><h2 class="section-title">Content &amp; digital work</h2></div>
+  <div class="reveal"><div class="eyebrow">04 / Creator</div><h2 class="section-title">Content &amp; digital work</h2></div>
   <div class="card creator-card reveal">
     <a class="play" href="https://www.youtube.com/@Rashqt" target="_blank" rel="noopener" aria-label="Watch Rashqt on YouTube"></a>
     <div>
@@ -323,17 +178,39 @@ footer{padding:32px 0; color:var(--muted); font-size:.82rem; border-top:1px soli
   </div>
 </div></section>
 
+<section id="gallery"><div class="container">
+  <div class="reveal"><div class="eyebrow">05 / Gallery</div><h2 class="section-title">A few snapshots</h2></div>
+  <div class="gallery-grid" id="galleryGrid">
+    <div class="gallery-item reveal"><img src="assets/gallery/1.jpeg" alt="Gallery image 1" loading="lazy"></div>
+    <div class="gallery-item reveal"><img src="assets/gallery/2.jpeg" alt="Gallery image 2" loading="lazy"></div>
+    <div class="gallery-item reveal"><img src="assets/gallery/3.jpeg" alt="Gallery image 3" loading="lazy"></div>
+    <div class="gallery-item reveal"><img src="assets/gallery/4.jpeg" alt="Gallery image 4" loading="lazy"></div>
+    <div class="gallery-item reveal"><img src="assets/gallery/5.jpeg" alt="Gallery image 5" loading="lazy"></div>
+    <div class="gallery-item reveal"><img src="assets/gallery/6.jpeg" alt="Gallery image 6" loading="lazy"></div>
+  </div>
+</div></section>
+
 <section id="contact"><div class="container">
   <div class="contact-split reveal">
     <div>
-      <div class="eyebrow">07 / Contact</div>
-      <h2 class="big-cta">Let's work<br>together.</h2>
+      <div class="eyebrow">06 / Contact</div>
+      <h2 class="big-cta">Let's work together.</h2>
       <p style="color:var(--muted); max-width:480px;">For work opportunities, freelance projects, or collaboration — reach out by email or connect below.</p>
+      <div class="buttons" style="margin-top:24px;">
+        <a class="btn primary" href="mailto:workforrash@gmail.com">workforrash@gmail.com</a>
+        <a class="btn ghost" href="https://github.com/Rashqt" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn ghost" href="https://linkedin.com/in/rashid-ahmad-703231414" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
     </div>
-    <div class="buttons">
-      <a class="btn primary" href="mailto:workforrash@gmail.com">workforrash@gmail.com</a>
-      <a class="btn" href="https://github.com/Rashqt" target="_blank" rel="noopener">GitHub</a>
-      <a class="btn" href="https://linkedin.com/in/rashid-ahmad-703231414" target="_blank" rel="noopener">LinkedIn</a>
+    <div class="newsletter-box">
+      <div class="eyebrow">Newsletter</div>
+      <h3>Get new posts by email</h3>
+      <p>Occasional notes on data, compliance, and code. No spam.</p>
+      <form class="newsletter-form" data-newsletter>
+        <input type="email" required placeholder="you@email.com" aria-label="Email address">
+        <button class="btn primary" type="submit">Subscribe</button>
+      </form>
+      <p class="newsletter-status" aria-live="polite"></p>
     </div>
   </div>
 </div></section>
@@ -341,87 +218,10 @@ footer{padding:32px 0; color:var(--muted); font-size:.82rem; border-top:1px soli
 <footer class="container">
   <span>© 2026 Rashid Ahmad</span>
   <span>Ranchi, Jharkhand, India</span>
+  <span>Designed by Rashqt</span>
 </footer>
 
-<script>
-// Hero letter-by-letter reveal
-const title = document.getElementById('heroTitle');
-const text = [
-  {t:"Rashid ", grad:false},
-  {t:"Ahmad.", grad:true}
-];
-let delay = 0;
-text.forEach(part=>{
-  [...part.t].forEach(ch=>{
-    const el = document.createElement('span');
-    el.className = 'letter' + (part.grad ? ' grad':'');
-    el.style.animationDelay = delay + 's';
-    el.textContent = ch;
-    title.appendChild(el);
-    delay += 0.035;
-  });
-});
-
-// Marquee ticker content
-const skills = ["HTML5","CSS3","JavaScript","Node.js","Python","Pandas","MySQL","KYC Compliance","Data Entry","Excel","Git/GitHub","AI Workflows","REST APIs","Quality Assurance"];
-const tickerEl = document.getElementById('ticker');
-const full = [...skills, ...skills].map(s=>`<span>${s}</span>`).join('');
-tickerEl.innerHTML = full;
-
-// Scroll progress bar
-const progress = document.getElementById('progress');
-window.addEventListener('scroll', ()=>{
-  const h = document.documentElement;
-  const pct = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
-  progress.style.width = pct + '%';
-});
-
-// Cursor glow (desktop only)
-const glow = document.getElementById('glow');
-window.addEventListener('pointermove', (e)=>{
-  glow.style.left = e.clientX + 'px';
-  glow.style.top = e.clientY + 'px';
-});
-
-// Scroll reveal
-const revealEls = document.querySelectorAll('.reveal');
-const io = new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-}, {threshold:.12});
-revealEls.forEach(el=>io.observe(el));
-
-// Mobile menu toggle
-const burger = document.getElementById('burger');
-const mobileMenu = document.getElementById('mobileMenu');
-burger.addEventListener('click', ()=>{
-  const isOpen = mobileMenu.classList.toggle('open');
-  burger.classList.toggle('open', isOpen);
-  burger.setAttribute('aria-expanded', isOpen);
-  document.body.style.overflow = isOpen ? 'hidden' : '';
-});
-mobileMenu.querySelectorAll('a').forEach(link=>{
-  link.addEventListener('click', ()=>{
-    mobileMenu.classList.remove('open');
-    burger.classList.remove('open');
-    burger.setAttribute('aria-expanded', false);
-    document.body.style.overflow = '';
-  });
-});
-
-// Tilt effect on cards (skip on touch / reduced motion)
-const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const isFine = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
-if(!prefersReduced && isFine){
-  document.querySelectorAll('.card').forEach(card=>{
-    card.addEventListener('mousemove', (e)=>{
-      const r = card.getBoundingClientRect();
-      const x = (e.clientX - r.left)/r.width - .5;
-      const y = (e.clientY - r.top)/r.height - .5;
-      card.style.transform = `perspective(700px) rotateX(${y*-7}deg) rotateY(${x*7}deg) translateY(-4px)`;
-    });
-    card.addEventListener('mouseleave', ()=>{ card.style.transform = 'perspective(700px) rotateX(0) rotateY(0) translateY(0)'; });
-  });
-}
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
