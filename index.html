@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Rashid Ahmad — Data Entry, Compliance & Web Development Professional">
+<title>Rashid Ahmad | Portfolio</title>
+<style>
+:root{--bg:#0b0b0f;--card:#13131a;--text:#f5f5f7;--muted:#a4a4b2;--line:#292934;--accent:#8b7cff}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
+a{color:inherit;text-decoration:none}
+.container{width:min(1100px,92%);margin:auto}
+nav{position:sticky;top:0;z-index:10;background:rgba(11,11,15,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{height:70px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:800;letter-spacing:-.04em;font-size:1.2rem}
+.logo span{color:var(--accent)}
+.links{display:flex;gap:24px;color:var(--muted);font-size:.92rem}
+.links a:hover{color:var(--text)}
+.hero{min-height:calc(100vh - 70px);display:flex;align-items:center;padding:90px 0}
+.eyebrow{color:var(--accent);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem}
+h1{font-size:clamp(3rem,8vw,6.4rem);line-height:.95;letter-spacing:-.07em;max-width:900px;margin:18px 0 28px}
+.hero p{max-width:700px;color:var(--muted);font-size:1.12rem}
+.buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-block;padding:12px 18px;border:1px solid var(--line);border-radius:12px;background:var(--card);font-weight:700}
+.btn.primary{background:var(--text);color:var(--bg);border-color:var(--text)}
+section{padding:95px 0;border-top:1px solid var(--line)}
+.section-title{font-size:2rem;letter-spacing:-.04em;margin-bottom:34px}
+.about{display:grid;grid-template-columns:1fr 1.4fr;gap:55px}
+.about p{color:var(--muted);font-size:1.05rem}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px}
+.card h3{margin-bottom:10px;font-size:1.1rem}
+.card p,.card li{color:var(--muted);font-size:.95rem}
+.tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}
+.tag{border:1px solid var(--line);padding:7px 10px;border-radius:999px;color:#c7c7d1;font-size:.82rem}
+.timeline{display:grid;gap:18px}
+.role{border-left:2px solid var(--accent);padding:4px 0 4px 24px}
+.role .meta{color:var(--accent);font-size:.85rem;font-weight:700;margin-bottom:4px}
+.role ul{margin:12px 0 0 18px}
+.project{min-height:210px;display:flex;flex-direction:column;justify-content:space-between}
+.project .num{color:var(--accent);font-weight:800}
+.project a{color:var(--accent);font-weight:700;margin-top:18px;display:inline-block}
+.contact{display:flex;justify-content:space-between;align-items:end;gap:30px}
+.contact p{color:var(--muted);max-width:600px}
+footer{padding:30px 0;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line)}
+@media(max-width:760px){
+ .links{display:none}.hero{padding:70px 0;min-height:auto}
+ .about,.grid{grid-template-columns:1fr}.contact{display:block}
+ section{padding:70px 0} h1{font-size:clamp(3.2rem,18vw,5rem)}
+}
+</style>
+</head>
+<body>
+<nav><div class="container nav">
+<a class="logo" href="#">Rashid<span>.</span></a>
+<div class="links"><a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#contact">Contact</a></div>
+</div></nav>
+
+<header class="hero container">
+<div>
+<div class="eyebrow">Data • Compliance • Web Development</div>
+<h1>Rashid Ahmad.</h1>
+<p>Detail-oriented professional combining data entry, KYC/compliance operations, web development, and AI-assisted productivity.</p>
+<div class="buttons">
+<a class="btn primary" href="#projects">View Projects</a>
+<a class="btn" href="mailto:workforrash@gmail.com">Contact Me</a>
+</div>
+</div>
+</header>
+
+<section id="about"><div class="container about">
+<div><div class="eyebrow">01 / About</div><h2 class="section-title">Reliable with data.<br>Curious about tech.</h2></div>
+<div><p>Hands-on experience in banking and mortgage data entry, KYC document verification, compliance-focused record keeping, and practical web development. Comfortable working independently, learning new tools quickly, and communicating clearly with clients and teams.</p><p style="margin-top:18px">Based in Ranchi, Jharkhand, India. Open to data entry, operations, customer support, and entry-level technical opportunities.</p></div>
+</div></section>
+
+<section id="skills"><div class="container">
+<div class="eyebrow">02 / Skills</div><h2 class="section-title">What I work with</h2>
+<div class="grid">
+<div class="card"><h3>Web Development</h3><p>HTML5, CSS3, JavaScript, AngularJS, Node.js, MySQL, REST API Integration, Responsive & Mobile-First Design, Git/GitHub, GitHub Pages, Netlify</p></div>
+<div class="card"><h3>Programming & Data</h3><p>Python, NumPy, Pandas, C++, JSON, YAML, Debugging, Technical Research</p></div>
+<div class="card"><h3>Data & Operations</h3><p>Data Entry, Data Processing, Documentation, Online Research, Spreadsheet Management, Record Keeping, Quality Assurance, Task Coordination</p></div>
+<div class="card"><h3>AI & Productivity</h3><p>ChatGPT, Claude, Gemini, Microsoft Copilot, Codex, Perplexity AI, Notion AI, Grammarly</p></div>
+<div class="card"><h3>Software & Collaboration</h3><p>Excel, Word, PowerPoint, Google Workspace, Notion, Trello, Slack, Zoom, Google Meet, Microsoft Teams, Canva</p></div>
+<div class="card"><h3>Strengths</h3><p>Fast Learner, Self-Taught, Adaptable, Problem Solver, Detail-Oriented, Organized, Creative Thinker, Research-Oriented, Independent Worker</p></div>
+</div></div></section>
+
+<section id="experience"><div class="container">
+<div class="eyebrow">03 / Experience</div><h2 class="section-title">Work experience</h2>
+<div class="timeline">
+<div class="role"><div class="meta">1 YEAR</div><h3>Banking KYC Data Entry Executive</h3><ul><li>Reviewed, verified, and entered customer KYC documentation according to banking compliance standards.</li><li>Maintained accuracy across large volumes of sensitive financial records.</li><li>Organized and cross-checked documentation and flagged discrepancies.</li></ul></div>
+<div class="role"><div class="meta">6 MONTHS</div><h3>Mortgage Data Entry Associate</h3><ul><li>Processed mortgage-related documentation with attention to accuracy and compliance.</li><li>Maintained organized digital records for retrieval and reporting.</li><li>Collaborated with team members to complete data processing tasks on time.</li></ul></div>
+<div class="role"><div class="meta">FREELANCE</div><h3>Web Developer — Business Website</h3><ul><li>Gathered client requirements and translated them into a functional website plan.</li><li>Built responsive UI/UX with HTML, CSS, and JavaScript.</li><li>Handled backend functionality, testing, deployment, hosting, revisions, and maintenance.</li></ul></div>
+</div></div></section>
+
+<section id="projects"><div class="container">
+<div class="eyebrow">04 / Projects</div><h2 class="section-title">Things I've built</h2>
+<div class="grid">
+<div class="card project"><div><div class="num">01</div><h3>Business Website Development</h3><p>Built and deployed a full client-facing business website, handling design, development, and hosting end-to-end.</p></div></div>
+<div class="card project"><div><div class="num">02</div><h3>Discord Bot Development</h3><p>Designed and built a custom Discord bot using programming logic and API integration to automate community functions.</p></div></div>
+<div class="card project"><div><div class="num">03</div><h3>Chrome Extension Development</h3><p>Developed a browser extension from concept to functionality using JavaScript and frontend engineering skills.</p></div></div>
+<div class="card project"><div><div class="num">04</div><h3>Portfolio Website</h3><p>Designed, built, and deployed a personal portfolio site to showcase projects and technical skills.</p></div></div>
+<div class="card project"><div><div class="num">05</div><h3>AI Productivity Systems</h3><p>Designed and tested AI-assisted workflows for research, documentation, content production, and learning.</p></div></div>
+</div></div></section>
+
+<section><div class="container">
+<div class="eyebrow">05 / Education</div><h2 class="section-title">Education</h2>
+<div class="grid">
+<div class="card"><h3>Class 12 — Science (PCM + Computer Science)</h3><p>Vivekananda Vidya Mandir School, Ranchi, Jharkhand · Completed 2024</p></div>
+<div class="card"><h3>B.Tech — Artificial Intelligence & Machine Learning</h3><p>Currently pursuing · 2nd Year</p></div>
+</div></div></section>
+
+<section><div class="container">
+<div class="eyebrow">06 / Creator</div><h2 class="section-title">Content & digital work</h2>
+<div class="card"><h3>Creator — Rashqt</h3><p>Independently managed end-to-end YouTube content production including research, script writing, voice-over recording, and publishing. Planned content around audience interests and applied creative strategy to maintain consistency and engagement.</p><div class="tags"><span class="tag">Research</span><span class="tag">Script Writing</span><span class="tag">Voice-over</span><span class="tag">Publishing</span><span class="tag">Community Engagement</span></div></div>
+</div></section>
+
+<section id="contact"><div class="container contact">
+<div><div class="eyebrow">07 / Contact</div><h2 class="section-title">Let's work together.</h2><p>For work opportunities, freelance projects, or collaboration, reach out by email or connect through the links below.</p></div>
+<div class="buttons"><a class="btn primary" href="mailto:workforrash@gmail.com">workforrash@gmail.com</a><a class="btn" href="https://github.com/Rashqt" target="_blank">GitHub</a><a class="btn" href="https://linkedin.com/in/rashid-ahmad-703231414" target="_blank">LinkedIn</a></div>
+</div></section>
+
+<footer><div class="container">© 2026 Rashid Ahmad · Ranchi, Jharkhand, India</div></footer>
+</body>
+</html>
