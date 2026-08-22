@@ -1,0 +1,47 @@
+[
+  {
+    "id": "post-accuracy",
+    "date": "Aug 2026",
+    "category": "Compliance",
+    "title": "Why Accuracy Beats Speed in KYC Data Entry",
+    "excerpt": "Notes from a year of verifying financial records, and why small habits catch the discrepancies that matter most.",
+    "content": [
+      "A year into banking KYC data entry, the lesson that stuck with me wasn't about typing speed — it was about the habits that catch a discrepancy before it becomes someone else's problem down the line.",
+      "Every document that crosses a compliance desk carries a small chance of being slightly wrong: a mismatched address, an expired ID, a signature that doesn't quite line up. Most of the job is building a rhythm where those small mismatches actually surface instead of sliding through.",
+      "The habit that helped most was treating every record like it would be audited the same day — not eventually, today. It sounds simple, but it changes how carefully you cross-check a field before moving to the next one.",
+      "None of this is glamorous work, but it's the kind of quiet reliability that compounds. A team that trusts its data doesn't have to double-check everything downstream, and that trust is built one careful entry at a time."
+    ],
+    "likes": 24,
+    "sharePath": "#post-accuracy"
+  },
+  {
+    "id": "post-ai-workflows",
+    "date": "Jul 2026",
+    "category": "AI & Productivity",
+    "title": "What Building AI Workflows Taught Me",
+    "excerpt": "Turning ChatGPT, Claude, and Notion AI into an actual system instead of a pile of open tabs.",
+    "content": [
+      "For a while, my \"AI workflow\" was just a dozen open tabs — ChatGPT for one thing, Claude for another, Notion AI half-finished somewhere in between. It worked, technically, but it wasn't a system.",
+      "The shift happened when I stopped treating each tool as a one-off assistant and started treating them as stages in a pipeline: research and brainstorming in one place, drafting and structuring in another, and a final review pass somewhere else entirely.",
+      "The biggest unlock was writing down the handoffs — what goes from step one into step two, and in what format. Once that was explicit, the whole thing stopped feeling like juggling and started feeling like an actual workflow.",
+      "It also changed how I learn new technical concepts. Instead of reading and hoping it sticks, I now use AI tools to quiz myself, summarize in my own words, and flag the parts I clearly don't understand yet — which turns out to be faster than it sounds."
+    ],
+    "likes": 18,
+    "sharePath": "#post-ai-workflows"
+  },
+  {
+    "id": "post-self-taught",
+    "date": "Jun 2026",
+    "category": "Career",
+    "title": "From Data Entry to Web Dev: A Self-Taught Path",
+    "excerpt": "How compliance work and late-night coding ended up teaching each other more than expected.",
+    "content": [
+      "By day, I was verifying KYC documents. By night, I was slowly teaching myself HTML, CSS, and JavaScript — two completely different worlds that, it turns out, aren't as separate as they look.",
+      "Compliance work trains a specific kind of attention: check the field, check it again, notice when something is off even if you can't immediately explain why. That same instinct turned out to be exactly what debugging a broken layout or a silent JavaScript error requires.",
+      "Being self-taught meant a lot of trial and error — building a business website end to end, then a Discord bot, then a Chrome extension, each one teaching me something the last one didn't cover.",
+      "The throughline across both halves of my work is the same: accuracy first, speed second. Whether it's a mortgage record or a line of code, the version that's careful tends to age a lot better than the version that's fast."
+    ],
+    "likes": 31,
+    "sharePath": "#post-self-taught"
+  }
+]
