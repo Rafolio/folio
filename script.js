@@ -218,17 +218,22 @@ function loadBlogs(){
 const blogPreviewGrid = document.getElementById('blogPreviewGrid');
 if(blogPreviewGrid){
   loadBlogs().then(()=>{
-    blogPreviewGrid.innerHTML = BLOGS.slice(0, 3).map(post=>`
+    blogPreviewGrid.innerHTML = BLOGS.slice(0, 3).map(post=>{
+      const isSoon = post.status === 'coming-soon';
+      return `
       <a class="card blog-card reveal" href="blog.html#${post.id}">
+        ${post.image ? `<div class="blog-card-image"><img src="${post.image}" alt="${post.title}" loading="lazy"></div>` : ''}
         <span class="blog-date mono">${post.category} · ${post.date}</span>
         <h3>${post.title}</h3>
-        <p>${post.excerpt}</p>
-        <div style="display:flex; align-items:center; justify-content:space-between; margin-top:10px;">
-          <span class="like-count-display mono">❤️ ${currentLikeCount(post)}</span>
-          <span class="arrow-link">Read more</span>
-        </div>
-      </a>
-    `).join('');
+        ${isSoon
+          ? `<div style="margin-top:10px;"><span class="coming-soon-badge">Coming soon</span></div>`
+          : `<p>${post.excerpt}</p>
+             <div style="display:flex; align-items:center; justify-content:space-between; margin-top:10px;">
+               <span class="like-count-display mono">❤️ ${currentLikeCount(post)}</span>
+               <span class="arrow-link">Read more</span>
+             </div>`}
+      </a>`;
+    }).join('');
     observeReveals(blogPreviewGrid);
     attachTilt(blogPreviewGrid);
   }).catch(()=>{
@@ -245,15 +250,19 @@ if(blogFullGrid){
   const noResults = document.getElementById('blogNoResults');
 
   function cardHTML(post){
+    const isSoon = post.status === 'coming-soon';
     return `
       <div class="card blog-card reveal" data-blog-id="${post.id}" style="cursor:pointer;">
+        ${post.image ? `<div class="blog-card-image"><img src="${post.image}" alt="${post.title}" loading="lazy"></div>` : ''}
         <span class="blog-date mono">${post.category} · ${post.date}</span>
         <h3>${post.title}</h3>
-        <p>${post.excerpt}</p>
-        <div style="display:flex; align-items:center; justify-content:space-between; margin-top:10px;">
-          <span class="like-count-display mono">❤️ ${currentLikeCount(post)}</span>
-          <span class="arrow-link">Read</span>
-        </div>
+        ${isSoon
+          ? `<div style="margin-top:10px;"><span class="coming-soon-badge">Coming soon</span></div>`
+          : `<p>${post.excerpt}</p>
+             <div style="display:flex; align-items:center; justify-content:space-between; margin-top:10px;">
+               <span class="like-count-display mono">❤️ ${currentLikeCount(post)}</span>
+               <span class="arrow-link">Read</span>
+             </div>`}
       </div>`;
   }
 
@@ -276,33 +285,86 @@ if(blogFullGrid){
   function applySearch(){
     const q = (searchInput.value || '').trim().toLowerCase();
     if(!q){ renderGrid(BLOGS); return; }
-    const filtered = BLOGS.filter(post=>
-      post.title.toLowerCase().includes(q) ||
-      post.category.toLowerCase().includes(q) ||
-      post.excerpt.toLowerCase().includes(q) ||
-      post.content.join(' ').toLowerCase().includes(q)
-    );
+    const filtered = BLOGS.filter(post=>{
+      const bodyText = post.content.map(c => typeof c === 'string' ? c : (c.text || '')).join(' ');
+      return post.title.toLowerCase().includes(q) ||
+        post.category.toLowerCase().includes(q) ||
+        post.excerpt.toLowerCase().includes(q) ||
+        bodyText.toLowerCase().includes(q);
+    });
     renderGrid(filtered);
   }
   searchInput?.addEventListener('input', applySearch);
+
+  function contentBlockHTML(block){
+    if(typeof block === 'string') return `<p>${block}</p>`;
+    if(block.type === 'quote'){
+      return `<blockquote class="blog-quote">"${block.text}"<cite>— ${block.attribution}</cite></blockquote>`;
+    }
+    if(block.type === 'heading'){
+      return `<h3 class="blog-heading">${block.text}</h3>`;
+    }
+    return '';
+  }
+
+  function productHTML(product){
+    if(!product) return '';
+    const imageBlock = product.image
+      ? `<div class="product-image"><img src="${product.image}" alt="${product.title}"></div>`
+      : `<div class="product-image product-image--empty">Product photo coming soon</div>`;
+    const button = product.buttonUrl
+      ? `<a class="btn primary" href="${product.buttonUrl}" target="_blank" rel="noopener sponsored">${product.buttonText} <span class="arrow">→</span></a>`
+      : `<button class="btn primary" disabled aria-disabled="true" title="Link coming soon">${product.buttonText} <span class="coming-soon-badge">Coming soon</span></button>`;
+    return `
+      <div class="product-placement">
+        <div class="product-placement-label mono">Product Placement</div>
+        ${imageBlock}
+        <div class="product-info">
+          <h3>${product.title}</h3>
+          <p>${product.description}</p>
+          ${button}
+        </div>
+      </div>`;
+  }
 
   function openArticle(id){
     const post = BLOGS.find(p=>p.id === id);
     if(!post) return;
     const url = window.location.origin + window.location.pathname + '#' + post.id;
+    const isSoon = post.status === 'coming-soon';
 
     document.getElementById('articleMeta').textContent = `${post.category} · ${post.date}`;
     document.getElementById('articleTitle').textContent = post.title;
-    document.getElementById('articleBody').innerHTML = post.content.map(p=>`<p>${p}</p>`).join('');
-    document.getElementById('articleShare').innerHTML = shareRowHTML(post.id, post.title, url);
 
-    const { liked } = likeState(post.id);
-    const likeBtn = document.getElementById('likeBtn');
-    likeBtn.dataset.blogId = post.id;
-    likeBtn.dataset.baseLikes = post.likes;
-    likeBtn.classList.toggle('liked', liked);
-    likeBtn.setAttribute('aria-pressed', liked);
-    document.getElementById('likeCount').textContent = currentLikeCount(post);
+    const featuredImg = document.getElementById('articleFeaturedImage');
+    if(post.image){
+      document.getElementById('articleFeaturedImg').src = post.image;
+      document.getElementById('articleFeaturedImg').alt = post.title;
+      featuredImg.style.display = 'block';
+    }else{
+      featuredImg.style.display = 'none';
+    }
+
+    document.getElementById('articleComingSoon').style.display = isSoon ? 'block' : 'none';
+    document.getElementById('articleBody').style.display = isSoon ? 'none' : 'block';
+    document.getElementById('articleLikeRow').style.display = isSoon ? 'none' : 'flex';
+    document.getElementById('articleShareBlock').style.display = isSoon ? 'none' : 'block';
+
+    if(!isSoon){
+      document.getElementById('articleBody').innerHTML = post.content.map(contentBlockHTML).join('');
+      document.getElementById('articleProduct').innerHTML = productHTML(post.product);
+      document.getElementById('articleShare').innerHTML = shareRowHTML(post.id, post.title, url);
+
+      const { liked } = likeState(post.id);
+      const likeBtn = document.getElementById('likeBtn');
+      likeBtn.dataset.blogId = post.id;
+      likeBtn.dataset.baseLikes = post.likes;
+      likeBtn.classList.toggle('liked', liked);
+      likeBtn.setAttribute('aria-pressed', liked);
+      document.getElementById('likeCount').textContent = currentLikeCount(post);
+    }else{
+      document.getElementById('articleProduct').innerHTML = '';
+    }
 
     gridView.style.display = 'none';
     articleView.style.display = 'block';
