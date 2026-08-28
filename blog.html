@@ -59,6 +59,7 @@
     <div class="blog-hub-header reveal">
       <div class="eyebrow">The Blog</div>
       <h1 class="page-title">From the blog</h1>
+      <p class="blog-yap-tag mono">I YAP HERE IN BLOG</p>
       <p>Notes on data, compliance, AI workflows, and building things — one post at a time.</p>
     </div>
     <div class="search-wrap reveal">
@@ -81,16 +82,25 @@
     <div class="article-panel">
       <div class="blog-modal-meta mono" id="articleMeta"></div>
       <h2 class="blog-modal-title" id="articleTitle"></h2>
-      <div class="blog-modal-body" id="articleBody"></div>
+      <div class="article-featured-image" id="articleFeaturedImage" style="display:none;"><img id="articleFeaturedImg" src="" alt=""></div>
 
-      <div class="blog-like-row">
+      <div id="articleComingSoon" class="coming-soon-block" style="display:none;">
+        <div class="coming-soon-icon">✍️</div>
+        <h3>Coming soon</h3>
+        <p>This one's still being written — check back soon.</p>
+      </div>
+
+      <div class="blog-modal-body" id="articleBody"></div>
+      <div id="articleProduct"></div>
+
+      <div class="blog-like-row" id="articleLikeRow">
         <button class="like-btn" id="likeBtn" aria-pressed="false">
           <span class="heart">❤️</span> <span id="likeCount">0</span>
         </button>
         <button class="btn primary open-support">Support Rash <span class="arrow">→</span></button>
       </div>
 
-      <div class="blog-share-block">
+      <div class="blog-share-block" id="articleShareBlock">
         <div class="share-label mono">Share this post</div>
         <div class="share-row" id="articleShare"></div>
       </div>
